@@ -1,0 +1,9 @@
+services:
+  honeypot:
+    build: .
+    restart: unless-stopped
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    ports: ["8080:8080","2323:2323","2222:2222"]
+    volumes: ["./data:/app/data"]

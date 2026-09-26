@@ -1,0 +1,21 @@
+[Unit]
+Description=Ankit Honeypot Threat Monitor
+After=network-online.target
+Wants=network-online.target
+[Service]
+Type=simple
+User=honeypot
+Group=honeypot
+WorkingDirectory=/opt/ankit-honeypot-threat-monitor
+EnvironmentFile=/etc/ankit-honeypot.env
+ExecStart=/opt/ankit-honeypot-threat-monitor/.venv/bin/python /opt/ankit-honeypot-threat-monitor/honeypot.py run
+Restart=always
+RestartSec=5
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/opt/ankit-honeypot-threat-monitor/data
+UMask=0077
+[Install]
+WantedBy=multi-user.target
