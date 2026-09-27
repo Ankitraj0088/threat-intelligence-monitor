@@ -15,16 +15,16 @@ Run the sensor on a dedicated disposable VPS/VM or isolated network segment. Nev
 
 ## systemd
 ```bash
-sudo useradd --system --home /opt/ankit-honeypot-threat-monitor honeypot
-sudo cp -r . /opt/ankit-honeypot-threat-monitor
-sudo chown -R honeypot:honeypot /opt/ankit-honeypot-threat-monitor
-python3 -m venv /opt/ankit-honeypot-threat-monitor/.venv
-/opt/ankit-honeypot-threat-monitor/.venv/bin/pip install -r /opt/ankit-honeypot-threat-monitor/requirements.txt
-sudo cp systemd/ankit-honeypot.service /etc/systemd/system/
-sudo cp .env.example /etc/ankit-honeypot.env
-sudo chmod 600 /etc/ankit-honeypot.env
+sudo useradd --system --home /opt/threatsentinel honeypot
+sudo cp -r . /opt/threatsentinel
+sudo chown -R honeypot:honeypot /opt/threatsentinel
+python3 -m venv /opt/threatsentinel/.venv
+/opt/threatsentinel/.venv/bin/pip install -r /opt/threatsentinel/requirements.txt
+sudo cp systemd/threatsentinel.service /etc/systemd/system/
+sudo cp .env.example /etc/threatsentinel.env
+sudo chmod 600 /etc/threatsentinel.env
 sudo systemctl daemon-reload
-sudo systemctl enable --now ankit-honeypot
+sudo systemctl enable --now threatsentinel
 ```
 
-Use `systemctl status ankit-honeypot` and `journalctl -u ankit-honeypot -f` to monitor it.
+Use `systemctl status threatsentinel` and `journalctl -u threatsentinel -f` to monitor it.

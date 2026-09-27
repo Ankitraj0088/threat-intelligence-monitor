@@ -1,4 +1,4 @@
-# Ankit Honeypot Threat Monitor
+# ThreatSentinel
 
 A defensive low-interaction SSH/Telnet/HTTP honeypot for an isolated VPS/VM. It records real incoming interactions, persists telemetry in SQLite, detects brute force/recon/signature activity, maps detections to MITRE ATT&CK, provides an SSE live dashboard, and can send cooldown-controlled email alerts.
 

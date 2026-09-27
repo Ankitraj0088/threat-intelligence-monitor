@@ -1,0 +1,21 @@
+[Unit]
+Description=ThreatSentinel
+After=network-online.target
+Wants=network-online.target
+[Service]
+Type=simple
+User=honeypot
+Group=honeypot
+WorkingDirectory=/opt/threatsentinel
+EnvironmentFile=/etc/threatsentinel.env
+ExecStart=/opt/threatsentinel/.venv/bin/python /opt/threatsentinel/honeypot.py run
+Restart=always
+RestartSec=5
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/opt/threatsentinel/data
+UMask=0077
+[Install]
+WantedBy=multi-user.target
